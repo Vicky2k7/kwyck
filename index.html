@@ -1,175 +1,41 @@
 <!DOCTYPE html>
-<html lang="nl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kwyck - Official Webpage</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍻</text></svg>">
-    
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Plus Jakarta Sans for modern typography -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <title>K.W.Y.C.K.</title>
 
     <style>
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: #0d0515;
-            color: #f3e8ff;
-            overflow: hidden;
-        }
-
-        /* Gold Foil Gradient Text */
-        .text-gold-gradient {
-            background: linear-gradient(135deg, #fff3d1 0%, #f3d684 40%, #dfb76c 70%, #997327 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        /* Subtle Gold Glow Border */
-        .gold-glow-border {
-            border: 1px solid rgba(223, 183, 108, 0.25);
-            box-shadow: 0 0 25px -5px rgba(223, 183, 108, 0.15),
-                        inset 0 0 15px -5px rgba(223, 183, 108, 0.1);
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .gold-glow-border:hover {
-            border-color: rgba(243, 214, 132, 0.45);
-            box-shadow: 0 0 35px -5px rgba(223, 183, 108, 0.3),
-                        inset 0 0 20px -5px rgba(223, 183, 108, 0.2);
-        }
-
-        /* Dynamic Spotlight Radial Layer */
-        #spotlight {
-            pointer-events: none;
+        #center {
             position: absolute;
-            inset: 0;
-            background: radial-gradient(
-                600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
-                rgba(168, 85, 247, 0.18),
-                rgba(217, 119, 6, 0.08) 40%,
-                transparent 80%
-            );
-            transition: opacity 0.5s ease;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+
+            padding: 1rem;
+            border: 1px solid black;
         }
 
-        /* Floating particles animation */
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.3; }
-            50% { transform: translateY(-20px) rotate(180deg); opacity: 0.8; }
+        #center h1::after {
+            display: block;
+            content:"";
+            height:0.25rem;
+            width:0%;
+            background-color:purple;
+
+            transition: ease-in-out 1s;
         }
 
-        .particle {
-            position: absolute;
-            border-radius: 50%;
-            background: radial-gradient(circle, #f3d684 0%, transparent 70%);
-            animation: float 6s infinite ease-in-out;
-            pointer-events: none;
-        }
-
-        /* Pulse glow for status badge */
-        @keyframes pulseGlow {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.5; transform: scale(1.2); }
-        }
-
-        .badge-dot {
-            animation: pulseGlow 2s infinite ease-in-out;
+        #center h1:hover::after {
+            width: 100%;
         }
     </style>
 </head>
-<body class="relative min-h-screen flex items-center justify-center p-4">
-
-    <!-- Deep Ambient Background Base -->
-    <div class="fixed inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-purple-950 via-[#12061b] to-[#08020c] -z-20"></div>
-
-    <!-- Mouse / Touch Interactive Spotlight Glow -->
-    <div id="spotlight" class="-z-10"></div>
-
-    <!-- Background Ambient Dust/Sparkles Container -->
-    <div id="particles-container" class="fixed inset-0 pointer-events-none -z-10 overflow-hidden"></div>
-
-    <!-- Main Content Container (Glassmorphism Card) -->
-    <main class="w-full max-w-lg p-8 md:p-12 rounded-3xl backdrop-blur-xl bg-purple-950/30 gold-glow-border text-center relative z-10 flex flex-col items-center shadow-2xl">
-        
-        <!-- Logo / Icon Header -->
-        <div class="mb-6 relative group">
-            <div class="absolute -inset-1 bg-gradient-to-r from-amber-400 to-purple-600 rounded-full blur opacity-40 group-hover:opacity-75 transition duration-500"></div>
-            <div class="relative w-20 h-20 rounded-full bg-purple-900/60 border border-amber-300/30 flex items-center justify-center text-4xl shadow-inner">
-                🍻
-            </div>
-        </div>
-
-        <!-- Main Title -->
-        <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight mb-3 text-gold-gradient drop-shadow-sm">
-            De officiële webpagina van Kwyck.
-        </h1>
-
-        <!-- Status Badge (Work in Progress) -->
-        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-900/40 border border-amber-400/30 backdrop-blur-md">
-            <span class="w-2.5 h-2.5 rounded-full bg-amber-400 shadow-[0_0_8px_#f3d684] badge-dot"></span>
-            <span class="text-xs font-semibold tracking-wider uppercase text-amber-200/90">Work in progress</span>
-        </div>
-
-        <!-- Footer / Copyright note -->
-        <div class="mt-10 pt-6 border-t border-purple-500/10 w-full text-xs text-purple-300/40">
-            &copy; <span id="year"></span> Kwyck. Alle rechten voorbehouden.
-        </div>
-    </main>
-
-    <!-- Interactive Script -->
-    <script>
-        // Set dynamic current year in footer
-        document.getElementById('year').textContent = new Date().getFullYear();
-
-        const spotlight = document.getElementById('spotlight');
-
-        // Function to update spotlight position
-        function updateSpotlight(x, y) {
-            spotlight.style.setProperty('--mouse-x', `${x}px`);
-            spotlight.style.setProperty('--mouse-y', `${y}px`);
-        }
-
-        // Mouse movement listener (Desktop)
-        window.addEventListener('mousemove', (e) => {
-            updateSpotlight(e.clientX, e.clientY);
-        });
-
-        // Touch event listeners (Mobile / Tablet)
-        window.addEventListener('touchmove', (e) => {
-            if (e.touches.length > 0) {
-                updateSpotlight(e.touches[0].clientX, e.touches[0].clientY);
-            }
-        });
-
-        window.addEventListener('touchstart', (e) => {
-            if (e.touches.length > 0) {
-                updateSpotlight(e.touches[0].clientX, e.touches[0].clientY);
-            }
-        });
-
-        // Generate ambient golden dust particles
-        const particlesContainer = document.getElementById('particles-container');
-        const particleCount = 20;
-
-        for (let i = 0; i < particleCount; i++) {
-            const particle = document.createElement('div');
-            particle.classList.add('particle');
-            
-            // Random sizes, positions, and animation delays
-            const size = Math.random() * 4 + 2;
-            particle.style.width = `${size}px`;
-            particle.style.height = `${size}px`;
-            particle.style.left = `${Math.random() * 100}%`;
-            particle.style.top = `${Math.random() * 100}%`;
-            particle.style.animationDelay = `${Math.random() * 5}s`;
-            particle.style.animationDuration = `${Math.random() * 4 + 4}s`;
-            
-            particlesContainer.appendChild(particle);
-        }
-    </script>
+<body>
+    <div id="center">
+        <h1>K.W.Y.C.K.</h1><span> ~ MMXXVI</span>
+        <p><i>Kloecke Waergebóren ende Ydelmoedighe Collegie der Kwanthen</i></p>
+    </div>
 </body>
 </html>
